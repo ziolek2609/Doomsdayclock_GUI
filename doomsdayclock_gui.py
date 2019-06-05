@@ -11,6 +11,7 @@ def count():
          hours = (sec%(24*60*60))//(60*60)
          minutes = (sec%(60*60))//60
          seconds = (sec%60)
+         remained = Label(master, text = "REMAINED:").place(x=0,y=180)
          endwillcome = Label(master, text =(years,"years",days,"days",hours,"hours",minutes,"minutes",seconds,"seconds")).place(x=0,y=200)
 
 master = Tk()
