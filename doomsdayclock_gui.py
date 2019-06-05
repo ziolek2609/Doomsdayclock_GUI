@@ -21,4 +21,6 @@ minutebox.place(x=0,y=120)
 secondbox = Spinbox(master, from_ = 0, to = 59)
 secondbox.place(x=0,y=140)
 
+button = Button(master, text = "zatwierdź", command = count).place(x=0,y=160)
+
 glowneOkno.mainloop()
