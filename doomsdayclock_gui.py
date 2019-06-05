@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 import datetime
 
+
 def count():
          end = datetime.datetime(int(yearbox.get()),int(monthbox.get()),int(daybox.get()),int(hourbox.get()),int(minutebox.get()),int(secondbox.get()))
          now = datetime.datetime.now()
@@ -15,9 +16,11 @@ def count():
          remained = Label(master, text = "REMAINED:").place(x=0,y=180)
          endwillcome = Label(master, text =(years,"years",days,"days",hours,"hours",minutes,"minutes",seconds,"seconds")).place(x=0,y=200)
 
+
 master = Tk()
 master.title("Doomsdayclock")
 master.geometry("600x300")
+
 
 title = Label(master, text = "DOOMSDAYCLOCK").place(x=0,y=0)
 text = Label(master, text = "BLA BLA BLA").place(x=0,y=20)
@@ -37,4 +40,6 @@ secondbox.place(x=0,y=140)
 
 button = Button(master, text = "zatwierdź", command = count).place(x=0,y=160)
 
-glowneOkno.mainloop()
+
+master.mainloop()
+
