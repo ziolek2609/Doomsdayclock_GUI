@@ -16,6 +16,7 @@ def count():
          remained = Label(master, text = "REMAINED:").place(x=0,y=180)
          timer = Label(master, text =(years,"years",days,"days",hours,"hours",minutes,"minutes",seconds,"seconds"))
          timer.place(x=0,y=200)
+         timer.after(1000, count)
 
 
 master = Tk()
@@ -23,10 +24,8 @@ master.title("Doomsdayclock")
 master.geometry("600x300")
 
 
-title = Label(master, text = "DOOMSDAYCLOCK")
-title.place(x=0,y=0)
-text = Label(master, text = "BLA BLA BLA")
-text.place(x=0,y=20)
+title = Label(master, text = "DOOMSDAYCLOCK").place(x=0,y=0)
+text = Label(master, text = "BLA BLA BLA").place(x=0,y=20)
 
 yearbox = Spinbox(master, from_ = 2019, to = 3000)
 yearbox.place(x=0,y=40)
