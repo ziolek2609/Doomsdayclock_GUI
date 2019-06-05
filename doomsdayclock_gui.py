@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 
 def count():
-         end = datetime.datetime(yearbox.get(),monthbox.get(),daybox.get(),hourbox.get(),minutebox.get(),secondbox.get())
+         end = datetime.datetime(int(yearbox.get()),int(monthbox.get()),int(daybox.get()),int(hourbox.get()),int(minutebox.get()),int(secondbox.get()))
          now = datetime.datetime.now()
          delta = end - now
          sec = round(delta.total_seconds())
