@@ -1,3 +1,5 @@
+# OCZYWIŚCIE NALEŻY WSZYSTKO ŁADNIE SFORMATOWAĆ BO NARAZIE WYGLĄDA JAK GÓWNO
+
 from tkinter import *
 from tkinter import messagebox
 import datetime
