@@ -1,6 +1,17 @@
 from tkinter import *
 from tkinter import messagebox
 
+def count():
+         end = datetime.datetime(yearbox.get(),monthbox.get(),daybox.get(),hourbox.get(),minutebox.get(),secondbox.get())
+         now = datetime.datetime.now()
+         delta = end - now
+         sec = round(delta.total_seconds())
+         years = sec//(365*24*60*60)
+         days = (sec%(365*24*60*60))//(24*60*60)
+         hours = (sec%(24*60*60))//(60*60)
+         minutes = (sec%(60*60))//60
+         seconds = (sec%60)
+
 master = Tk()
 master.title("Doomsdayclock")
 master.geometry("600x300")
