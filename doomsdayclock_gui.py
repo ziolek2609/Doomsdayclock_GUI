@@ -6,6 +6,7 @@ import datetime
 
 # funkcja licząca ile czasu pozostało do końca świata i wyświetlająca pozostały czas w odpoweidnich jednostkach
 def count():
+    # 'try' daje możliwość tego, że dalsza część się wykona o ile nie napotka błędu wskazanego w 'except' (poniżej)
     try:
         # jako 'end' ustawiam date wprowadzoną przez użytkownika
         end = datetime.datetime(int(yearbox.get()),int(monthbox.get()),int(daybox.get()),int(hourbox.get()),int(minutebox.get()),int(secondbox.get()))
@@ -26,10 +27,11 @@ def count():
         timer.place(x=0,y=200)
         # po sekundzie funkcja wywołuje się od nowa, przez co czas spada na oczach użytkownika
         timer.after(1000, count)
-
+    # 'except' określa co ma się stać, gdy program napotka błąd, w naszym programie jest to źle wpisana data przez użytkownika
     except ValueError:
         error = Label(master, text = "incorrect data")
         error.place(x=0,y=180)
+
 
 master = Tk()
 master.title("Doomsdayclock")
@@ -41,13 +43,13 @@ title = Label(master, text = "DOOMSDAYCLOCK").place(x=0,y=0)
 text = Label(master, text = "BLA BLA BLA").place(x=0,y=20)
 
 # użytkownik wprowadza datę i czas końca świata
-# POTRZEBA ZNALEŹĆ INNY SPOSÓB NIŻ TE SPINBOXY, BO TU MOŻEMY WPROWADZIĆ NP: 31 LUTY
+# problem z wpisywaniem daty rozwiązany, w prawdzie na piehote ale działa:)
 # oczywiście potrzebne opisy wszędzie
-
 yearbox = Spinbox(master, from_ = 2019, to = 3000)
 yearbox.place(x=0,y=40)
 monthbox = Spinbox(master, from_ = 1, to = 12)
 monthbox.place(x=0,y=60)
+#tu określam ile dni mają poszczególne miesiące
 if int(monthbox.get())==2 and int(yearbox.get())%4==0:
     daybox = Spinbox(master, from_ = 1, to = 29)
     daybox.place(x=0,y=80)
@@ -69,5 +71,6 @@ secondbox.place(x=0,y=140)
 
 # przycisk rozpoczynający odliczanie
 button = Button(master, text = "count down", command = count).place(x=0,y=160)
+
 
 master.mainloop()
