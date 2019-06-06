@@ -45,7 +45,7 @@ text = Label(master, text = "BLA BLA BLA").place(x=0,y=20)
 # użytkownik wprowadza datę i czas końca świata
 # problem z wpisywaniem daty rozwiązany, w prawdzie na piechotę ale działa:)
 # oczywiście potrzebne opisy wszędzie
-yearbox = Spinbox(master, from_ = 2019, to = 3000)
+yearbox = Spinbox(master, from_ = 2019, to = 9999999999)
 yearbox.place(x=0,y=40)
 monthbox = Spinbox(master, from_ = 1, to = 12)
 monthbox.place(x=0,y=60)
