@@ -37,14 +37,24 @@ title = Label(master, text = "DOOMSDAYCLOCK").place(x=0,y=0)
 text = Label(master, text = "BLA BLA BLA").place(x=0,y=20)
 
 # użytkownik wprowadza datę i czas końca świata
-# POTRZEBA ZNALEŹĆ INNY SPOSÓB NIŻ TE SPINBOXY, BO TU MOŻEMY WPROWADZIĆ NP: 31 LUTY
+# TERAZ DA SIE WPISAĆ NP. 31 LUTEGO ALE WYSKOCZY WTEDY BŁĄD W KONSOLI I NIE ROZPOCZNIE SIE ODLICZANIE
 # oczywiście potrzebne opisy wszędzie
 yearbox = Spinbox(master, from_ = 2019, to = 3000)
 yearbox.place(x=0,y=40)
 monthbox = Spinbox(master, from_ = 1, to = 12)
 monthbox.place(x=0,y=60)
-daybox = Spinbox(master, from_ = 1, to = 31)
-daybox.place(x=0,y=80)
+if int(monthbox.get())==2 and int(yearbox.get())%4==0:
+    daybox = Spinbox(master, from_ = 1, to = 29)
+    daybox.place(x=0,y=80)
+elif int(monthbox.get())==2 and int(yearbox.get())%4!=0:
+    daybox = Spinbox(master, from_ = 1, to = 28)
+    daybox.place(x=0,y=80)
+elif int(monthbox.get())==4 or int(monthbox.get())==6 or int(monthbox.get())==9 or int(monthbox.get())==11:
+    daybox = Spinbox(master, from_ = 1, to = 30)
+    daybox.place(x=0,y=80)
+else:
+    daybox = Spinbox(master, from_ = 1, to = 31)
+    daybox.place(x=0,y=80)
 hourbox = Spinbox(master, from_ = 0, to = 23)
 hourbox.place(x=0,y=100)
 minutebox = Spinbox(master, from_ = 0, to = 59)
