@@ -43,7 +43,7 @@ title = Label(master, text = "DOOMSDAYCLOCK").place(x=0,y=0)
 text = Label(master, text = "BLA BLA BLA").place(x=0,y=20)
 
 # użytkownik wprowadza datę i czas końca świata
-# problem z wpisywaniem daty rozwiązany, w prawdzie na piehote ale działa:)
+# problem z wpisywaniem daty rozwiązany, w prawdzie na piechotę ale działa:)
 # oczywiście potrzebne opisy wszędzie
 yearbox = Spinbox(master, from_ = 2019, to = 3000)
 yearbox.place(x=0,y=40)
