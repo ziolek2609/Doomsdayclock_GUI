@@ -38,6 +38,7 @@ master.title("Doomsdayclock")
 master.geometry("600x300")
 
 
+
 title = Label(master, text = "DOOMSDAYCLOCK").place(x=0,y=0)
 # tu trzeba będzie dodać te ładne opisy:
 text = Label(master, text = "BLA BLA BLA").place(x=0,y=20)
@@ -71,6 +72,5 @@ secondbox.place(x=0,y=140)
 
 # przycisk rozpoczynający odliczanie
 button = Button(master, text = "count down", command = count).place(x=0,y=160)
-
 
 master.mainloop()
