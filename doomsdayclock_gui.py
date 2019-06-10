@@ -27,31 +27,36 @@ def count():
         timer.place(x=0,y=200)
         # po sekundzie funkcja wywołuje się od nowa, przez co czas spada na oczach użytkownika
         timer.after(1000, count)
-        if years == 1 and days == 0 and hours == 0 and minutes == 0 and seconds == 0:
+        if sec ==(3600*24*365*5) :
                     gif_window = Tk()
                     gif_window.title("Gif")
-                    message = Label(gif_window,text = "One year left")
                     gif_window.geometry("300x150")
-        elif years == 0 and days == 1 and hours == 0 and minutes ==0 and seconds == 0:
+                    message = Label(gif_window,text = "Five years left")
+                    message.pack()
+        elif sec ==(3600*24*365) :
+                    gif_window = Tk()
+                    gif_window.title("Gif")
+                    gif_window.geometry("300x150")
+                    message = Label(gif_window,text = "One year left")
+                    message.pack()
+        elif sec == (3600 * 24):
                     gif_window = Tk()
                     gif_window.title("Gif")
                     gif_window.geometry("300x150")
                     message = Label(gif_window,text = "One day left")
-        elif years == 5 and days == 0 and hours == 0 and minutes ==0 and seconds == 0:
-                    gif_window = Tk()
-                    gif_window.title("Gif")
-                    gif_window.geometry("300x150")
-                    message = Label(gif_window,text = "Five year left")
-        elif years == 0 and days == 0 and hours == 1 and minutes ==0 and seconds == 0:
+                    message.pack()
+        elif sec == 3600 :
                     gif_window = Tk()
                     gif_window.title("Gif")
                     gif_window.geometry("300x150")
                     message = Label(gif_window,text = "One hour left")
-        elif years == 0 and days == 0 and hours == 0 and minutes ==0 and seconds == 0:
+                    message.pack()
+        elif sec == 0:
                     gif_window = Tk()
                     gif_window.title("Gif")
                     gif_window.geometry("300x150")
                     message = Label(gif_window,text = "Doomsday has come!")
+                    message.pack()
         else:
             pass
     # 'except' określa co ma się stać, gdy program napotka błąd, w naszym programie jest to źle wpisana data przez użytkownika
