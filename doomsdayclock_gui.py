@@ -69,49 +69,62 @@ master = Tk()
 master.title("Doomsdayclock")
 master.geometry("800x500")
 
-title = Label(master,text ="DOOMSDAYCLOCK",font=("Times New Roman",20),foreground="white",bg="#ff0000",borderwidth=10,relief="groove",width=52).place(x=0,y=0)
+title = Label(master,text ="DOOMSDAYCLOCK",font=("Times New Roman",40),foreground="white",bg="#ff0000",borderwidth=9,width=26).place(x=0,y=0)
 # tu trzeba będzie dodać te ładne opisy:
-contents=Label(font=("Verdana",10,"italic"),text="\"We all have two lifes. The second one starts when you realize, that you only have one.\"").place(x=0,y=60)
-contents=Label(text="Since you've realized it, end your first life.")
-contents=Label(text="Thanks to our great DoomsdayClock you'll be able to know how much time you have on this world\nThe most incredible thing is that it's you who choose THE HOUR.\nChoose wisely.").place(x=40,y=100)
-contents=Label(text="")
+textbox=Text(master,width=600,height=200)
+textbox.pack()
+textbox.place(x=0,y=80)
+textbox.insert(END,"\"We all have two lifes.\nThe second one starts when you realize, that you only have one.\"\n",("h1"))
+textbox.insert(END,"Since you've realized it, end your first life.\n",("h2"))
+textbox.insert(END,"Thanks to our great DoomsdayClock you'll be able to know how much time you have on this world.\nThe most incredible thing is that it's you who choose THE HOUR.\nChoose wisely.\n",("h3"))
+textbox.insert(END,"Our best specialists took care your sense of humor is fine while waiting for the end of the world.",("h4"))
+textbox.tag_add("h1","1.0","1.0")
+textbox.tag_config("h1",font=("Helvetica",20,"italic"),spacing3=10)
+textbox.tag_add("h2","1.0","1.0")
+textbox.tag_config("h2",font=("Verdana",10),spacing3=10)
+textbox.tag_add("h3","1.0","1.0")
+textbox.tag_config("h3",font=("Courier",8),background="lightgrey")
+textbox.tag_add("h4","1.0","1.0")
+textbox.tag_config("h4",font=("Ariel",10),spacing1=10)
 # użytkownik wprowadza datę i czas końca świata
 # problem z wpisywaniem daty rozwiązany, w prawdzie na piechotę ale działa:)
 # oczywiście potrzebne opisy wszędzie
 xboxposition=370
+yboxposition=300
 xtextposition=305
+ytextposition=300
 yearbox = Spinbox(master, from_ = 2019, to = 9999999999)
-yearbox.place(x=xboxposition,y=200)
-text = Label(master, text = "year:").place(x=xtextposition,y=200)
+yearbox.place(x=xboxposition,y=yboxposition)
+text = Label(master, text = "year:").place(x=xtextposition,y=ytextposition)
 monthbox = Spinbox(master, from_ = 1, to = 12)
-monthbox.place(x=xboxposition,y=220)
-text2 = Label(master, text = "month:").place(x=xtextposition,y=220)
+monthbox.place(x=xboxposition,y=yboxposition+20)
+text = Label(master, text = "month:").place(x=xtextposition,y=ytextposition+20)
 #tu określam ile dni mają poszczególne miesiące
 if int(monthbox.get())==2 and int(yearbox.get())%4==0:
     daybox = Spinbox(master, from_ = 1, to = 29)
-    daybox.place(x=xboxposition,y=240)
+    daybox.place(x=xboxposition,y=yboxposition+40)
 elif int(monthbox.get())==2 and int(yearbox.get())%4!=0:
     daybox = Spinbox(master, from_ = 1, to = 28)
-    daybox.place(x=xboxposition,y=240)
+    daybox.place(x=xboxposition,y=yboxposition+40)
 elif int(monthbox.get())==4 or int(monthbox.get())==6 or int(monthbox.get())==9 or int(monthbox.get())==11:
     daybox = Spinbox(master, from_ = 1, to = 30)
-    daybox.place(x=xboxposition,y=240)
+    daybox.place(x=xboxposition,y=yboxposition+40)
 else:
     daybox = Spinbox(master, from_ = 1, to = 31)
-    daybox.place(x=xboxposition,y=240)
-text = Label(master, text = "day:").place(x=xtextposition,y=240)
+    daybox.place(x=xboxposition,y=yboxposition+40)
+text = Label(master, text = "day:").place(x=xtextposition,y=ytextposition+40)
 hourbox = Spinbox(master, from_ = 0, to = 23)
-hourbox.place(x=xboxposition,y=260)
-text = Label(master, text = "hour:").place(x=xtextposition,y=260)
+hourbox.place(x=xboxposition,y=yboxposition+60)
+text = Label(master, text = "hour:").place(x=xtextposition,y=ytextposition+60)
 minutebox = Spinbox(master, from_ = 0, to = 59)
-minutebox.place(x=xboxposition,y=280)
-text = Label(master, text = "minute:").place(x=xtextposition,y=280)
+minutebox.place(x=xboxposition,y=yboxposition+80)
+text = Label(master, text = "minute:").place(x=xtextposition,y=ytextposition+80)
 secondbox = Spinbox(master, from_ = 0, to = 59)
-secondbox.place(x=xboxposition,y=300)
-text = Label(master, text = "second:").place(x=xtextposition,y=300)
+secondbox.place(x=xboxposition,y=yboxposition+100)
+text = Label(master, text = "second:").place(x=xtextposition,y=ytextposition+100)
 
 # przycisk rozpoczynający odliczanie
-button = Button(master, text = "count down", command = count).place(x=370,y=330)
+button = Button(master, text = "count down", command = count).place(x=370,y=440)
 
 
 master.mainloop()
