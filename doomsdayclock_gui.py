@@ -67,47 +67,51 @@ def count():
 
 master = Tk()
 master.title("Doomsdayclock")
-master.geometry("600x300")
+master.geometry("800x500")
 
-
-title = Label(master, text = "DOOMSDAYCLOCK").place(x=240,y=0)
+title = Label(master,text ="DOOMSDAYCLOCK",font=("Times New Roman",20),foreground="white",bg="#ff0000",borderwidth=10,relief="groove",width=52).place(x=0,y=0)
 # tu trzeba będzie dodać te ładne opisy:
-
+contents=Label(font=("Verdana",10,"italic"),text="\"We all have two lifes. The second one starts when you realize, that you only have one.\"").place(x=0,y=60)
+contents=Label(text="Since you've realized it, end your first life.")
+contents=Label(text="Thanks to our great DoomsdayClock you'll be able to know how much time you have on this world\nThe most incredible thing is that it's you who choose THE HOUR.\nChoose wisely.").place(x=40,y=100)
+contents=Label(text="")
 # użytkownik wprowadza datę i czas końca świata
 # problem z wpisywaniem daty rozwiązany, w prawdzie na piechotę ale działa:)
 # oczywiście potrzebne opisy wszędzie
+xboxposition=370
+xtextposition=305
 yearbox = Spinbox(master, from_ = 2019, to = 9999999999)
-yearbox.place(x=250,y=40)
-text = Label(master, text = "year:").place(x=200,y=40)
+yearbox.place(x=xboxposition,y=200)
+text = Label(master, text = "year:").place(x=xtextposition,y=200)
 monthbox = Spinbox(master, from_ = 1, to = 12)
-monthbox.place(x=250,y=60)
-text2 = Label(master, text = "month:").place(x=200,y=60)
+monthbox.place(x=xboxposition,y=220)
+text2 = Label(master, text = "month:").place(x=xtextposition,y=220)
 #tu określam ile dni mają poszczególne miesiące
 if int(monthbox.get())==2 and int(yearbox.get())%4==0:
     daybox = Spinbox(master, from_ = 1, to = 29)
-    daybox.place(x=250,y=80)
+    daybox.place(x=xboxposition,y=240)
 elif int(monthbox.get())==2 and int(yearbox.get())%4!=0:
     daybox = Spinbox(master, from_ = 1, to = 28)
-    daybox.place(x=250,y=80)
+    daybox.place(x=xboxposition,y=240)
 elif int(monthbox.get())==4 or int(monthbox.get())==6 or int(monthbox.get())==9 or int(monthbox.get())==11:
     daybox = Spinbox(master, from_ = 1, to = 30)
-    daybox.place(x=250,y=80)
+    daybox.place(x=xboxposition,y=240)
 else:
     daybox = Spinbox(master, from_ = 1, to = 31)
-    daybox.place(x=250,y=80)
-text = Label(master, text = "day:").place(x=200,y=80)
+    daybox.place(x=xboxposition,y=240)
+text = Label(master, text = "day:").place(x=xtextposition,y=240)
 hourbox = Spinbox(master, from_ = 0, to = 23)
-hourbox.place(x=250,y=100)
-text = Label(master, text = "hour:").place(x=200,y=100)
+hourbox.place(x=xboxposition,y=260)
+text = Label(master, text = "hour:").place(x=xtextposition,y=260)
 minutebox = Spinbox(master, from_ = 0, to = 59)
-minutebox.place(x=250,y=120)
-text = Label(master, text = "minute:").place(x=200,y=120)
+minutebox.place(x=xboxposition,y=280)
+text = Label(master, text = "minute:").place(x=xtextposition,y=280)
 secondbox = Spinbox(master, from_ = 0, to = 59)
-secondbox.place(x=250,y=140)
-text = Label(master, text = "second:").place(x=200,y=140)
+secondbox.place(x=xboxposition,y=300)
+text = Label(master, text = "second:").place(x=xtextposition,y=300)
 
 # przycisk rozpoczynający odliczanie
-button = Button(master, text = "count down", command = count).place(x=245,y=170)
+button = Button(master, text = "count down", command = count).place(x=370,y=330)
 
 
 master.mainloop()
