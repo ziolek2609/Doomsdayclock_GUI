@@ -1,8 +1,12 @@
 # OCZYWIŚCIE NALEŻY WSZYSTKO ŁADNIE SFORMATOWAĆ BO NARAZIE WYGLĄDA JAK GÓWNO
 
 from tkinter import *
-from tkinter import messagebox
 import datetime
+from PIL import ImageTk, Image
+import os
+import requests
+from io import BytesIO
+import sys
 
 # funkcja licząca ile czasu pozostało do końca świata i wyświetlająca pozostały czas w odpoweidnich jednostkach
 def count():
@@ -22,53 +26,60 @@ def count():
         seconds = (sec%60)
         # 'remained' oraz 'timer' pokazują ile czasu pozostało
         remained = Label(master, text = "REMAINED:")
-        remained.place(x=0,y=180)
+        remained.place(x=245,y=210)
         timer = Label(master, text =(years,"years",days,"days",hours,"hours",minutes,"minutes",seconds,"seconds"))
-        timer.place(x=0,y=200)
+        timer.place(x=170,y=230)
         # po sekundzie funkcja wywołuje się od nowa, przez co czas spada na oczach użytkownika
         timer.after(1000, count)
         if sec ==(3600*24*365*5) :
-                    gif_window = Tk()
+                    gif_window =Toplevel()
                     gif_window.title("Gif")
-                    gif_window.geometry("300x150")
-                    message = Label(gif_window,text = "Five years left")
-                    message.pack()
+                    gif_window.geometry("650x400")
+                    panel = Label(gif_window, image=img)
+                    panel.pack()
+
         elif sec ==(3600*24*365) :
-                    gif_window = Tk()
+                    gif_window =Toplevel()
                     gif_window.title("Gif")
-                    gif_window.geometry("300x150")
-                    message = Label(gif_window,text = "One year left")
-                    message.pack()
+                    gif_window.geometry("650x400")
+                    panel = Label(gif_window, image=img)
+                    panel.pack()
         elif sec == (3600 * 24):
-                    gif_window = Tk()
+                    gif_window =Toplevel()
                     gif_window.title("Gif")
-                    gif_window.geometry("300x150")
-                    message = Label(gif_window,text = "One day left")
-                    message.pack()
+                    gif_window.geometry("650x400")
+                    panel = Label(gif_window, image=img)
+                    panel.pack()
         elif sec == 3600 :
-                    gif_window = Tk()
+                    gif_window =Toplevel()
                     gif_window.title("Gif")
-                    gif_window.geometry("300x150")
-                    message = Label(gif_window,text = "One hour left")
-                    message.pack()
+                    gif_window.geometry("650x400")
+                    panel = Label(gif_window, image=img)
+                    panel.pack()
         elif sec == 0:
-                    gif_window = Tk()
+                    gif_window =Toplevel()
                     gif_window.title("Gif")
-                    gif_window.geometry("300x150")
-                    message = Label(gif_window,text = "Doomsday has come!")
-                    message.pack()
+                    gif_window.geometry("650x400")
+                    panel = Label(gif_window, image=img)
+                    panel.pack()
         else:
             pass
+
     # 'except' określa co ma się stać, gdy program napotka błąd, w naszym programie jest to źle wpisana data przez użytkownika
     except ValueError:
         error = Label(master, text = "incorrect data")
         error.place(x=0,y=180)
 
 
+
 master = Tk()
 master.title("Doomsdayclock")
 master.geometry("600x300")
 
+img_url = "https://media.giphy.com/media/3orif3VHjBeYBDTGlG/giphy.gif"
+response = requests.get(img_url)
+img_data = response.content
+img = ImageTk.PhotoImage(Image.open(BytesIO(img_data)))
 
 title = Label(master, text = "DOOMSDAYCLOCK").place(x=240,y=0)
 # tu trzeba będzie dodać te ładne opisy:
@@ -108,6 +119,4 @@ text = Label(master, text = "second:").place(x=200,y=140)
 
 # przycisk rozpoczynający odliczanie
 button = Button(master, text = "count down", command = count).place(x=245,y=170)
-
-
 master.mainloop()
