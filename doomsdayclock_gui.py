@@ -93,7 +93,7 @@ textbox.tag_config("h1",font=("Helvetica",20,"italic"),spacing3=10)
 textbox.tag_add("h2","1.0","1.0")
 textbox.tag_config("h2",font=("Verdana",10),spacing3=10)
 textbox.tag_add("h3","1.0","1.0")
-textbox.tag_config("h3",font=("Courier",8),background="lightgrey")
+textbox.tag_config("h3",font=("Courier",8),background="#d9d9d9")
 textbox.tag_add("h4","1.0","1.0")
 textbox.tag_config("h4",font=("Ariel",10),spacing1=10,background="lightcoral")
 # użytkownik wprowadza datę i czas końca świata
@@ -105,10 +105,10 @@ xtextposition=305
 ytextposition=300
 yearbox = Spinbox(master, from_ = 2019, to = 9999999999)
 yearbox.place(x=xboxposition,y=yboxposition)
-text = Label(master, text = "year:").place(x=xtextposition,y=ytextposition)
+text = Label(master,text = "year:").place(x=xtextposition,y=ytextposition)
 monthbox = Spinbox(master, from_ = 1, to = 12)
 monthbox.place(x=xboxposition,y=yboxposition+20)
-text = Label(master, text = "month:").place(x=xtextposition,y=ytextposition+20)
+text = Label(master,bg="#ffb3b3",text = "month:").place(x=xtextposition,y=ytextposition+20)
 #tu określam ile dni mają poszczególne miesiące
 if int(monthbox.get())==2 and int(yearbox.get())%4==0:
     daybox = Spinbox(master, from_ = 1, to = 29)
@@ -122,21 +122,21 @@ elif int(monthbox.get())==4 or int(monthbox.get())==6 or int(monthbox.get())==9 
 else:
     daybox = Spinbox(master, from_ = 1, to = 31)
     daybox.place(x=xboxposition,y=yboxposition+40)
-text = Label(master, text = "day:").place(x=xtextposition,y=ytextposition+40)
+text = Label(master,text = "day:").place(x=xtextposition,y=ytextposition+40)
 hourbox = Spinbox(master, from_ = 0, to = 23)
 hourbox.place(x=xboxposition,y=yboxposition+60)
-text = Label(master, text = "hour:").place(x=xtextposition,y=ytextposition+60)
+text = Label(master,bg="#ffb3b3",text = "hour:").place(x=xtextposition,y=ytextposition+60)
 minutebox = Spinbox(master, from_ = 0, to = 59)
 minutebox.place(x=xboxposition,y=yboxposition+80)
 text = Label(master, text = "minute:").place(x=xtextposition,y=ytextposition+80)
 secondbox = Spinbox(master, from_ = 0, to = 59)
 secondbox.place(x=xboxposition,y=yboxposition+100)
-text = Label(master, text = "second:").place(x=xtextposition,y=ytextposition+100)
+text = Label(master,bg="#ffb3b3",text = "second:").place(x=xtextposition,y=ytextposition+100)
 
 # przycisk rozpoczynający odliczanie
-button=Button(master,text="count down",command = count,activebackground="red",
-background="white",foreground="red",height="3",width="23",overrelief="groove"
-).place(x=320,y=420)
+button=Button(master,font=("Verdana 15 bold"),text="COUNT DOWN",command=count,activebackground="red",
+bg="#e6e6e6",foreground="red",height="2",width="13",overrelief="groove"
+).place(x=310,y=420)
 
 
 master.mainloop()
