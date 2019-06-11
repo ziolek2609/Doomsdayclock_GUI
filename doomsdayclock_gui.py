@@ -34,6 +34,7 @@ def count():
         # po sekundzie funkcja wywołuje się od nowa, przez co czas spada na oczach użytkownika
         timer.after(1000, count)
         if sec ==(3600*24*365*5) :
+<<<<<<< Updated upstream
                     gif_window = Tk()
                     gif_window.title("Gif")
                     gif_window.geometry("300x150")
@@ -63,6 +64,48 @@ def count():
                     gif_window.geometry("300x150")
                     message = Label(gif_window,text = "Doomsday has come!")
                     message.pack()
+=======
+                    gif_window =Toplevel()
+                    gif_window.title("Memento mori")
+                    gif_window.geometry("650x400")
+                    panel = Label(gif_window, image=img)
+                    panel.pack(fill=BOTH, expand = 1)
+                    message = Label(gif_window,pady=10,font=("Verdana 20"),bg="black",foreground="white",text = "Five years left")
+                    message.pack(BOTTOM)
+
+        elif sec ==(3600*24*365) :
+                    gif_window =Toplevel()
+                    gif_window.title("Memento mori")
+                    gif_window.geometry("650x400")
+                    panel = Label(gif_window, image=img2)
+                    panel.pack(fill=BOTH, expand = 1)
+                    message = Label(gif_window,pady=10,font=("Verdana 20"),bg="black",foreground="white",text = "Year left")
+                    message.pack(side=BOTTOM)
+        elif sec == (3600 * 24):
+                    gif_window =Toplevel()
+                    gif_window.title("Memento mori")
+                    gif_window.geometry("650x400")
+                    panel = Label(gif_window, image=img3)
+                    panel.pack(fill=BOTH, expand = 1)
+                    message = Label(gif_window,pady=10,font=("Verdana 20"),bg="black",foreground="white",text = "One day left")
+                    message.pack(side=BOTTOM)
+        elif sec == 3600 :
+                    gif_window =Toplevel()
+                    gif_window.title("Memento mori")
+                    gif_window.geometry("650x400")
+                    panel = Label(gif_window, image=img4)
+                    panel.pack(fill=BOTH, expand = 1)
+                    message = Label(gif_window,pady=10,font=("Verdana 20"),bg="black",foreground="white",text = "One hour left")
+                    message.pack(side=BOTTOM)
+        elif sec == 0:
+                    gif_window =Toplevel()
+                    gif_window.title("Memento mori")
+                    gif_window.geometry("650x400")
+                    panel = Label(gif_window, image=img5)
+                    panel.pack(fill=BOTH, expand = 1)
+                    message = Label(gif_window,pady=10,font=("Verdana 20"),bg="black",foreground="white",text = "This is the end!")
+                    message.pack(side=BOTTOM)
+>>>>>>> Stashed changes
         else:
             pass
     # 'except' określa co ma się stać, gdy program napotka błąd, w naszym programie jest to źle wpisana data przez użytkownika
