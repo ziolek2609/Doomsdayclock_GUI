@@ -22,9 +22,9 @@ def count():
         seconds = (sec%60)
         # 'remained' oraz 'timer' pokazują ile czasu pozostało
         remained = Label(master, text = "REMAINED:")
-        remained.place(x=0,y=180)
+        remained.place(x=0,y=280)
         timer = Label(master, text =(years,"years",days,"days",hours,"hours",minutes,"minutes",seconds,"seconds"))
-        timer.place(x=0,y=200)
+        timer.place(x=0,y=300)
         # po sekundzie funkcja wywołuje się od nowa, przez co czas spada na oczach użytkownika
         timer.after(1000, count)
         if sec ==(3600*24*365*5) :
@@ -74,10 +74,12 @@ title = Label(master,text ="DOOMSDAYCLOCK",font=("Times New Roman",40),foregroun
 textbox=Text(master,width=600,height=200)
 textbox.pack()
 textbox.place(x=0,y=80)
-textbox.insert(END,"\"We all have two lifes.\nThe second one starts when you realize, that you only have one.\"\n",("h1"))
-textbox.insert(END,"Since you've realized it, end your first life.\n",("h2"))
-textbox.insert(END,"Thanks to our great DoomsdayClock you'll be able to know how much time you have on this world.\nThe most incredible thing is that it's you who choose THE HOUR.\nChoose wisely.\n",("h3"))
-textbox.insert(END,"Our best specialists took care your sense of humor is fine while waiting for the end of the world.",("h4"))
+textbox.insert(END,"                                 \"We all have two lifes.\nThe second one starts when you realize, that you only have one.\"\n",("h1"))
+textbox.insert(END,"                                                   Since you've realized it, end your first life.\n",("h2"))
+textbox.insert(END,"           Thanks to our great DoomsdayClock you'll be able to know how much time you have on this world.\n"
+                "                           The most incredible thing is that it's you who choose THE HOUR.\n"
+                "                                                  Choose wisely.\n",("h3"))
+textbox.insert(END,"                              Our best specialists took care your sense of humor is fine while waiting for the end of the world.                                ",("h4"))
 textbox.tag_add("h1","1.0","1.0")
 textbox.tag_config("h1",font=("Helvetica",20,"italic"),spacing3=10)
 textbox.tag_add("h2","1.0","1.0")
@@ -85,7 +87,7 @@ textbox.tag_config("h2",font=("Verdana",10),spacing3=10)
 textbox.tag_add("h3","1.0","1.0")
 textbox.tag_config("h3",font=("Courier",8),background="lightgrey")
 textbox.tag_add("h4","1.0","1.0")
-textbox.tag_config("h4",font=("Ariel",10),spacing1=10)
+textbox.tag_config("h4",font=("Ariel",10),spacing1=10,background="lightcoral")
 # użytkownik wprowadza datę i czas końca świata
 # problem z wpisywaniem daty rozwiązany, w prawdzie na piechotę ale działa:)
 # oczywiście potrzebne opisy wszędzie
@@ -124,7 +126,9 @@ secondbox.place(x=xboxposition,y=yboxposition+100)
 text = Label(master, text = "second:").place(x=xtextposition,y=ytextposition+100)
 
 # przycisk rozpoczynający odliczanie
-button = Button(master, text = "count down", command = count).place(x=370,y=440)
+button=Button(master,text="count down",command = count,activebackground="red",
+background="white",foreground="red",height="3",width="23",overrelief="groove"
+).place(x=320,y=420)
 
 
 master.mainloop()
