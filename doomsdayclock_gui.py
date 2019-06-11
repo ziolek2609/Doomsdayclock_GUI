@@ -1,5 +1,3 @@
-# OCZYWIŚCIE NALEŻY WSZYSTKO ŁADNIE SFORMATOWAĆ BO NARAZIE WYGLĄDA JAK GÓWNO
-
 from tkinter import *
 import datetime
 from PIL import ImageTk, Image
@@ -36,35 +34,34 @@ def count():
                     gif_window.title("Gif")
                     gif_window.geometry("650x400")
                     panel = Label(gif_window, image=img)
-                    panel.pack()
+                    panel.pack(fill=BOTH, expand = 1)
 
         elif sec ==(3600*24*365) :
                     gif_window =Toplevel()
                     gif_window.title("Gif")
                     gif_window.geometry("650x400")
-                    panel = Label(gif_window, image=img)
-                    panel.pack()
+                    panel = Label(gif_window, image=img2)
+                    panel.pack(fill=BOTH, expand = 1)
         elif sec == (3600 * 24):
                     gif_window =Toplevel()
                     gif_window.title("Gif")
                     gif_window.geometry("650x400")
-                    panel = Label(gif_window, image=img)
-                    panel.pack()
+                    panel = Label(gif_window, image=img3)
+                    panel.pack(fill=BOTH, expand = 1)
         elif sec == 3600 :
                     gif_window =Toplevel()
                     gif_window.title("Gif")
                     gif_window.geometry("650x400")
-                    panel = Label(gif_window, image=img)
-                    panel.pack()
+                    panel = Label(gif_window, image=img4)
+                    panel.pack(fill=BOTH, expand = 1)
         elif sec == 0:
                     gif_window =Toplevel()
                     gif_window.title("Gif")
                     gif_window.geometry("650x400")
-                    panel = Label(gif_window, image=img)
-                    panel.pack()
+                    panel = Label(gif_window, image=img5)
+                    panel.pack(fill=BOTH, expand = 1)
         else:
             pass
-
     # 'except' określa co ma się stać, gdy program napotka błąd, w naszym programie jest to źle wpisana data przez użytkownika
     except ValueError:
         error = Label(master, text = "incorrect data")
@@ -80,6 +77,26 @@ img_url = "https://media.giphy.com/media/3orif3VHjBeYBDTGlG/giphy.gif"
 response = requests.get(img_url)
 img_data = response.content
 img = ImageTk.PhotoImage(Image.open(BytesIO(img_data)))
+
+img_url2= 'https://media.giphy.com/media/xT9IgIqup6NRcbVI8U/giphy.gif'
+response2 = requests.get(img_url2)
+img_data2 = response2.content
+img2 = ImageTk.PhotoImage(Image.open(BytesIO(img_data2)))
+
+img_url3 = 'https://media.giphy.com/media/y3e2P2Sdf8RUc/giphy.gif'
+response3 = requests.get(img_url3)
+img_data3 = response3.content
+img3 = ImageTk.PhotoImage(Image.open(BytesIO(img_data3)))
+
+img_url4 ='https://media.giphy.com/media/BpXmTsM9q9thS/giphy.gif'
+response4 = requests.get(img_url4)
+img_data4 = response4.content
+img4 = ImageTk.PhotoImage(Image.open(BytesIO(img_data4)))
+
+img_url5 = 'https://media.giphy.com/media/fImh4xthZV5lK/giphy.gif'
+response5 = requests.get(img_url5)
+img_data5 = response5.content
+img5 = ImageTk.PhotoImage(Image.open(BytesIO(img_data5)))
 
 title = Label(master, text = "DOOMSDAYCLOCK").place(x=240,y=0)
 # tu trzeba będzie dodać te ładne opisy:
