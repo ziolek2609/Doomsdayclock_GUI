@@ -21,10 +21,18 @@ def count():
         minutes = (sec%(60*60))//60
         seconds = (sec%60)
         # 'remained' oraz 'timer' pokazują ile czasu pozostało
-        remained = Label(master, text = "REMAINED:")
-        remained.place(x=0,y=280)
-        timer = Label(master, text =(years,"years",days,"days",hours,"hours",minutes,"minutes",seconds,"seconds"))
-        timer.place(x=0,y=300)
+        remained = Label(master,bg="#ff0000",font=("Times New Roman",20),foreground="white",text = "REMAINED:")
+        remained.place(x=30,y=280)
+        timer=Label(master,bg="lightcoral",font=("Verdana",12),text=("years:",years))
+        timer.place(x=30,y=320)
+        timer=Label(master,bg="lightcoral",font=("Verdana",12),text=("days:",days))
+        timer.place(x=30,y=345)
+        timer=Label(master,bg="lightcoral",font=("Verdana",12),text=("hours:",hours))
+        timer.place(x=30,y=370)
+        timer=Label(master,bg="lightcoral",font=("Verdana",12),text=("minutes:",minutes))
+        timer.place(x=30,y=395)
+        timer=Label(master,bg="lightcoral",font=("Verdana",12),text=("seconds:",seconds))
+        timer.place(x=30,y=420)
         # po sekundzie funkcja wywołuje się od nowa, przez co czas spada na oczach użytkownika
         timer.after(1000, count)
         if sec ==(3600*24*365*5) :
@@ -64,6 +72,8 @@ def count():
         error = Label(master, text = "incorrect data")
         error.place(x=0,y=180)
 
+    text=Label(master,font=("Verdana 20 bold"),text=("There is\nNO\nTURNING\nBACK!"))
+    text.place(x=580,y=300)
 
 master = Tk()
 master.title("Doomsdayclock")
