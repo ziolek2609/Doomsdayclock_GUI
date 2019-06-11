@@ -1,3 +1,5 @@
+# OCZYWIŚCIE NALEŻY WSZYSTKO ŁADNIE SFORMATOWAĆ BO NARAZIE WYGLĄDA JAK GÓWNO
+
 from tkinter import *
 import datetime
 from PIL import ImageTk, Image
@@ -35,6 +37,8 @@ def count():
                     gif_window.geometry("650x400")
                     panel = Label(gif_window, image=img)
                     panel.pack(fill=BOTH, expand = 1)
+                    message = Label(gif_window,text = "Five years left")
+                    message.pack(side=BOTTOM)
 
         elif sec ==(3600*24*365) :
                     gif_window =Toplevel()
@@ -42,24 +46,32 @@ def count():
                     gif_window.geometry("650x400")
                     panel = Label(gif_window, image=img2)
                     panel.pack(fill=BOTH, expand = 1)
+                    message = Label(gif_window,text = "Year left")
+                    message.pack(side=BOTTOM)
         elif sec == (3600 * 24):
                     gif_window =Toplevel()
                     gif_window.title("Gif")
                     gif_window.geometry("650x400")
                     panel = Label(gif_window, image=img3)
                     panel.pack(fill=BOTH, expand = 1)
+                    message = Label(gif_window,text = "One day left")
+                    message.pack(side=BOTTOM)
         elif sec == 3600 :
                     gif_window =Toplevel()
                     gif_window.title("Gif")
                     gif_window.geometry("650x400")
                     panel = Label(gif_window, image=img4)
                     panel.pack(fill=BOTH, expand = 1)
+                    message = Label(gif_window,text = "One hour left")
+                    message.pack(side=BOTTOM)
         elif sec == 0:
                     gif_window =Toplevel()
                     gif_window.title("Gif")
                     gif_window.geometry("650x400")
                     panel = Label(gif_window, image=img5)
                     panel.pack(fill=BOTH, expand = 1)
+                    message = Label(gif_window,text = "This is the end!")
+                    message.pack(side=BOTTOM)
         else:
             pass
     # 'except' określa co ma się stać, gdy program napotka błąd, w naszym programie jest to źle wpisana data przez użytkownika
