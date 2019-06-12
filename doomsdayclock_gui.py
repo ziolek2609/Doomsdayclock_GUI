@@ -1,4 +1,6 @@
+
 from tkinter import *
+
 import datetime
 from PIL import ImageTk, Image
 import os
@@ -38,6 +40,51 @@ def count():
         # po sekundzie funkcja wywołuje się od nowa, przez co czas spada na oczach użytkownika
         timer.after(1000, count)
         if sec ==(3600*24*365*5) :
+
+
+                    gif_window =Toplevel()
+                    gif_window.title("Memento mori")
+                    gif_window.geometry("650x400")
+                    panel = Label(gif_window, image=img)
+                    panel.pack(fill=BOTH, expand = 1)
+                    message = Label(gif_window,pady=10,font=("Verdana 20"),bg="black",foreground="white",text = "Five years left")
+                    message.pack(BOTTOM)
+
+        elif sec ==(3600*24*365) :
+                    gif_window =Toplevel()
+                    gif_window.title("Memento mori")
+                    gif_window.geometry("650x400")
+                    panel = Label(gif_window, image=img2)
+                    panel.pack(fill=BOTH, expand = 1)
+                    message = Label(gif_window,pady=10,font=("Verdana 20"),bg="black",foreground="white",text = "Year left")
+                    message.pack(side=BOTTOM)
+        elif sec == (3600 * 24):
+                    gif_window =Toplevel()
+                    gif_window.title("Memento mori")
+                    gif_window.geometry("650x400")
+                    panel = Label(gif_window, image=img3)
+                    panel.pack(fill=BOTH, expand = 1)
+                    message = Label(gif_window,pady=10,font=("Verdana 20"),bg="black",foreground="white",text = "One day left")
+                    message.pack(side=BOTTOM)
+        elif sec == 3600 :
+                    gif_window =Toplevel()
+                    gif_window.title("Memento mori")
+                    gif_window.geometry("650x400")
+                    panel = Label(gif_window, image=img4)
+                    panel.pack(fill=BOTH, expand = 1)
+                    message = Label(gif_window,pady=10,font=("Verdana 20"),bg="black",foreground="white",text = "One hour left")
+                    message.pack(side=BOTTOM)
+        elif sec == 0:
+                    gif_window =Toplevel()
+                    gif_window.title("Memento mori")
+                    gif_window.geometry("650x400")
+                    panel = Label(gif_window, image=img5)
+                    panel.pack(fill=BOTH, expand = 1)
+                    message = Label(gif_window,pady=10,font=("Verdana 20"),bg="black",foreground="white",text = "This is the end!")
+                    message.pack(side=BOTTOM)
+
+
+
             gif_window =Toplevel()
             gif_window.title("Memento mori")
             gif_window.geometry("650x400")
@@ -79,6 +126,7 @@ def count():
             message = Label(gif_window,pady=10,font=("Verdana 20"),bg="black",foreground="white",text = "This is the end!")
             message.pack(side=BOTTOM)
             timer.destroy()
+
         else:
             pass
     # 'except' określa co ma się stać, gdy program napotka błąd, w naszym programie jest to źle wpisana data przez użytkownika
@@ -92,6 +140,7 @@ def count():
 master = Tk()
 master.title("Doomsdayclock")
 master.geometry("800x500")
+
 img_url = "https://media.giphy.com/media/3orif3VHjBeYBDTGlG/giphy.gif"
 response = requests.get(img_url)
 img_data = response.content
@@ -101,6 +150,7 @@ img_url2= 'https://media.giphy.com/media/xT9IgIqup6NRcbVI8U/giphy.gif'
 response2 = requests.get(img_url2)
 img_data2 = response2.content
 img2 = ImageTk.PhotoImage(Image.open(BytesIO(img_data2)))
+
 
 img_url3 = 'https://media.giphy.com/media/y3e2P2Sdf8RUc/giphy.gif'
 response3 = requests.get(img_url3)
