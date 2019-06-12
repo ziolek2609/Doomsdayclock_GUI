@@ -44,7 +44,7 @@ def count():
             panel = Label(gif_window, image=img)
             panel.pack(fill=BOTH, expand = 1)
             message = Label(gif_window,pady=10,font=("Verdana 20"),bg="black",foreground="white",text = "Five years left")
-            message.pack(BOTTOM)
+            message.pack(side=BOTTOM)
 
         elif sec ==(3600*24*365) :
             gif_window =Toplevel()
