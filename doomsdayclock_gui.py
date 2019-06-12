@@ -1,4 +1,6 @@
 
+from tkinter import *
+
 import datetime
 from PIL import ImageTk, Image
 import os
@@ -38,6 +40,7 @@ def count():
         # po sekundzie funkcja wywołuje się od nowa, przez co czas spada na oczach użytkownika
         timer.after(1000, count)
         if sec ==(3600*24*365*5) :
+
 
                     gif_window =Toplevel()
                     gif_window.title("Memento mori")
@@ -79,6 +82,7 @@ def count():
                     panel.pack(fill=BOTH, expand = 1)
                     message = Label(gif_window,pady=10,font=("Verdana 20"),bg="black",foreground="white",text = "This is the end!")
                     message.pack(side=BOTTOM)
+
 
 
             gif_window =Toplevel()
@@ -147,6 +151,7 @@ response2 = requests.get(img_url2)
 img_data2 = response2.content
 img2 = ImageTk.PhotoImage(Image.open(BytesIO(img_data2)))
 
+
 img_url3 = 'https://media.giphy.com/media/y3e2P2Sdf8RUc/giphy.gif'
 response3 = requests.get(img_url3)
 img_data3 = response3.content
@@ -161,7 +166,6 @@ img_url5 = 'https://media.giphy.com/media/fImh4xthZV5lK/giphy.gif'
 response5 = requests.get(img_url5)
 img_data5 = response5.content
 img5 = ImageTk.PhotoImage(Image.open(BytesIO(img_data5)))
-
 
 title = Label(master,text ="DOOMSDAYCLOCK",font=("Times New Roman",40),foreground="white",bg="#ff0000",borderwidth=9,width=26).place(x=0,y=0)
 # tu trzeba będzie dodać te ładne opisy:
