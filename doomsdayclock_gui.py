@@ -78,6 +78,7 @@ def count():
             panel.pack(fill=BOTH, expand = 1)
             message = Label(gif_window,pady=10,font=("Verdana 20"),bg="black",foreground="white",text = "This is the end!")
             message.pack(side=BOTTOM)
+            timer.destroy()
         else:
             pass
     # 'except' określa co ma się stać, gdy program napotka błąd, w naszym programie jest to źle wpisana data przez użytkownika
